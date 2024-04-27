@@ -8,8 +8,10 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class VentVender extends JDialog {
+public class VentVender extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblNewLabel;
@@ -61,6 +63,7 @@ public class VentVender extends JDialog {
 		getContentPane().add(btnVenderVV);
 		
 		btnCerrarVV = new JButton("Cerrar");
+		btnCerrarVV.addActionListener(this);
 		btnCerrarVV.setBounds(335, 43, 89, 23);
 		getContentPane().add(btnCerrarVV);
 		
@@ -88,4 +91,12 @@ public class VentVender extends JDialog {
 
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrarVV) {
+			actionPerformedBtnCerrarVV(e);
+		}
+	}
+	protected void actionPerformedBtnCerrarVV(ActionEvent e) {
+		dispose();
+	}
 }

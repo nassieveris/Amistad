@@ -7,8 +7,10 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class MantModificarCocina extends JDialog {
+public class MantModificarCocina extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JComboBox cmbModelo;
@@ -110,9 +112,18 @@ public class MantModificarCocina extends JDialog {
 		getContentPane().add(btnGrabarMMC);
 		
 		btnCerrarMMC = new JButton("Cerrar");
+		btnCerrarMMC.addActionListener(this);
 		btnCerrarMMC.setBounds(335, 43, 89, 23);
 		getContentPane().add(btnCerrarMMC);
 
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrarMMC) {
+			actionPerformedBtnCerrarMMC(e);
+		}
+	}
+	protected void actionPerformedBtnCerrarMMC(ActionEvent e) {
+		dispose();
+	}
 }

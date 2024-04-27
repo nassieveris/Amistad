@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.SwingConstants;
 
 public class Tienda extends JFrame implements ActionListener {
 
@@ -161,15 +162,19 @@ public class Tienda extends JFrame implements ActionListener {
 		menuBar.add(mnNewMenu_3);
 		
 		mntmNewMenuItem_6 = new JMenuItem("Configurar descuentos");
+		mntmNewMenuItem_6.addActionListener(this);
 		mnNewMenu_3.add(mntmNewMenuItem_6);
 		
 		mntmNewMenuItem_7 = new JMenuItem("Configurar obsequios");
+		mntmNewMenuItem_7.addActionListener(this);
 		mnNewMenu_3.add(mntmNewMenuItem_7);
 		
 		mntmNewMenuItem_8 = new JMenuItem("Configurar cantidad \u00F3ptima");
+		mntmNewMenuItem_8.addActionListener(this);
 		mnNewMenu_3.add(mntmNewMenuItem_8);
 		
 		mntmNewMenuItem_9 = new JMenuItem("Configurar cuota diaria");
+		mntmNewMenuItem_9.addActionListener(this);
 		mnNewMenu_3.add(mntmNewMenuItem_9);
 		
 		mnNewMenu_4 = new JMenu("Ayuda");
@@ -185,6 +190,18 @@ public class Tienda extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmNewMenuItem_9) {
+			actionPerformedMntmNewMenuItem_9(e);
+		}
+		if (e.getSource() == mntmNewMenuItem_8) {
+			actionPerformedMntmNewMenuItem_8(e);
+		}
+		if (e.getSource() == mntmNewMenuItem_7) {
+			actionPerformedMntmNewMenuItem_7(e);
+		}
+		if (e.getSource() == mntmNewMenuItem_6) {
+			actionPerformedMntmNewMenuItem_6(e);
+		}
 		if (e.getSource() == mntmNewMenuItem_5) {
 			actionPerformedMntmNewMenuItem_5(e);
 		}
@@ -209,7 +226,6 @@ public class Tienda extends JFrame implements ActionListener {
 		
 	}
 	protected void actionPerformedMntmNewMenuItem(ActionEvent e) {
-		
 		dispose();
 	}
 	protected void actionPerformedMntmNewMenuItem_10(ActionEvent e) {
@@ -242,6 +258,26 @@ public class Tienda extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedMntmNewMenuItem_5(ActionEvent e) {
 		VentGenerarReportes d6= new VentGenerarReportes();
+		d6.setLocationRelativeTo(this);
+		d6.setVisible(true);
+	}
+	protected void actionPerformedMntmNewMenuItem_6(ActionEvent e) {
+		ConfConfigurarDescuentos d6= new ConfConfigurarDescuentos();
+		d6.setLocationRelativeTo(this);
+		d6.setVisible(true);
+	}
+	protected void actionPerformedMntmNewMenuItem_7(ActionEvent e) {
+		ConfConfigurarObsequios d6= new ConfConfigurarObsequios();
+		d6.setLocationRelativeTo(this);
+		d6.setVisible(true);
+	}
+	protected void actionPerformedMntmNewMenuItem_8(ActionEvent e) {
+		ConfConfigurarCantidadOptima d6= new ConfConfigurarCantidadOptima();
+		d6.setLocationRelativeTo(this);
+		d6.setVisible(true);
+	}
+	protected void actionPerformedMntmNewMenuItem_9(ActionEvent e) {
+		ConfConfigurarCuotaDiaria d6= new ConfConfigurarCuotaDiaria();
 		d6.setLocationRelativeTo(this);
 		d6.setVisible(true);
 	}

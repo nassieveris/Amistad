@@ -5,8 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class MantListarCocinas extends JDialog {
+public class MantListarCocinas extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JTextArea txaListar;
@@ -44,6 +46,7 @@ public class MantListarCocinas extends JDialog {
 		getContentPane().add(txaListar);
 		
 		btnCerrarMLC = new JButton("Cerrar");
+		btnCerrarMLC.addActionListener(this);
 		btnCerrarMLC.setBounds(85, 227, 89, 23);
 		getContentPane().add(btnCerrarMLC);
 		
@@ -51,5 +54,13 @@ public class MantListarCocinas extends JDialog {
 		btnListarMLC.setBounds(259, 227, 89, 23);
 		getContentPane().add(btnListarMLC);
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrarMLC) {
+			actionPerformedBtnCerrarMLC(e);
+		}
+	}
+	protected void actionPerformedBtnCerrarMLC(ActionEvent e) {
+		dispose();
 	}
 }

@@ -7,8 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class VentGenerarReportes extends JDialog {
+public class VentGenerarReportes extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblTipoDeReporte;
@@ -51,6 +53,7 @@ public class VentGenerarReportes extends JDialog {
 		getContentPane().add(cmbReporte);
 		
 		btnCerrarVGR = new JButton("Cerrar");
+		btnCerrarVGR.addActionListener(this);
 		btnCerrarVGR.setBounds(335, 11, 89, 23);
 		getContentPane().add(btnCerrarVGR);
 		
@@ -60,4 +63,12 @@ public class VentGenerarReportes extends JDialog {
 
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrarVGR) {
+			actionPerformedBtnCerrarVGR(e);
+		}
+	}
+	protected void actionPerformedBtnCerrarVGR(ActionEvent e) {
+		dispose();
+	}
 }

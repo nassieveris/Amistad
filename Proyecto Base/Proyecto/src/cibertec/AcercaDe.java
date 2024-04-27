@@ -11,8 +11,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class AcercaDe extends JDialog {
+public class AcercaDe extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblNewLabel;
@@ -60,7 +62,16 @@ public class AcercaDe extends JDialog {
 		getContentPane().add(lblNewLabel_1);
 		
 		btnAcercaCerrar = new JButton("Cerrar");
-		btnAcercaCerrar.setBounds(185, 186, 89, 23);
+		btnAcercaCerrar.addActionListener(this);
+		btnAcercaCerrar.setBounds(171, 186, 89, 23);
 		getContentPane().add(btnAcercaCerrar);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAcercaCerrar) {
+			actionPerformedBtnAcercaCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnAcercaCerrar(ActionEvent e) {
+		dispose();
 	}
 }

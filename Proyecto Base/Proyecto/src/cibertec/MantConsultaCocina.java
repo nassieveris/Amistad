@@ -7,8 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class MantConsultaCocina extends JDialog {
+public class MantConsultaCocina extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblNewLabel;
@@ -110,8 +112,17 @@ public class MantConsultaCocina extends JDialog {
 		getContentPane().add(cmbModelo);
 		
 		btnCerrarMCC = new JButton("Cerrar");
+		btnCerrarMCC.addActionListener(this);
 		btnCerrarMCC.setBounds(335, 11, 89, 23);
 		getContentPane().add(btnCerrarMCC);
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrarMCC) {
+			actionPerformedBtnCerrarMCC(e);
+		}
+	}
+	protected void actionPerformedBtnCerrarMCC(ActionEvent e) {
+		dispose();
 	}
 }
